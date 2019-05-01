@@ -142,7 +142,7 @@ if ($forum_id > 0)
 									$addacct = sqlsrv_query($conn, $sql1, $params1);
 									
 									//Alright now lets try to insert the hashed/salted password
-									$sql2 = "INSERT INTO user_auth (account, password, salt, hash_type) VALUES ('?', CONVERT(BINARY(128),''), 0, 1);";
+									$sql2 = "INSERT INTO user_auth (account, password, salt, hash_type) VALUES (?, CONVERT(BINARY(128),?), 0, 1);";
 									$params2 = array( $authname, $password );
 									$addauth = sqlsrv_query($conn, $sql2, $params2);
 									
